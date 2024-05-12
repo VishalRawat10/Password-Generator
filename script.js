@@ -1,4 +1,4 @@
-let values = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz","1234567890", `~"!@#$%^&*()_+-={[}]\|;:.></?,"`];
+let values = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz", "1234567890", `~"!@#$%^&*()_+-={[}]\|;:.></?,"`];
 let count = 0;
 let btn = document.querySelector(".btn");
 let length = document.querySelector("input[type = 'number']");
@@ -9,8 +9,11 @@ btn.addEventListener("click", () => {
     document.querySelector(".random-password").innerText = generatePassword();
 });
 
-clipboard.addEventListener("click",() =>{
-    navigator.clipboard.writeText(document.querySelector(".random-password").innerText);
+clipboard.addEventListener("click", () => {
+    if (document.querySelector(".random-password").innerText.length != 0) {
+        navigator.clipboard.writeText(document.querySelector(".random-password").innerText);
+        alert("Password copied to clipboard.");
+    }
 });
 
 let getRandomIdx = length => (Math.floor(Math.random() * length));
@@ -24,12 +27,12 @@ function generatePassword() {
                 if (inputs[i].checked == true) {
                     randomPassword += values[i][getRandomIdx(values[i].length)];
                 }
-                else{
+                else {
                     count++;
                 }
             }
         }
-        if(count == 4){
+        if (count == 4) {
             return randomPassword;
         }
     }
