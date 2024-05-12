@@ -1,12 +1,17 @@
 let values = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz","1234567890", `~"!@#$%^&*()_+-={[}]\|;:.></?,"`];
 let count = 0;
-let btn = document.querySelector("button");
+let btn = document.querySelector(".btn");
 let length = document.querySelector("input[type = 'number']");
 let inputs = document.querySelectorAll("input[type = 'checkbox']");
+let clipboard = document.querySelector(".clipboard");
 
 btn.addEventListener("click", () => {
     document.querySelector(".random-password").innerText = generatePassword();
-})
+});
+
+clipboard.addEventListener("click",() =>{
+    navigator.clipboard.writeText(document.querySelector(".random-password").innerText);
+});
 
 let getRandomIdx = length => (Math.floor(Math.random() * length));
 

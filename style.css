@@ -75,6 +75,7 @@ form{
 .random-password{
     margin-left: 4px;
 }
+
 .container h2{
     font-size: 24px;
     font-weight: 700;
@@ -90,9 +91,10 @@ form{
     border: 3px solid  #3B3B98;
 }
 
-.material-symbols-outlined{
+.clipboard{
     position: absolute;
     left:85%;
     background-color: #3B3B98;
     padding: 8px 8px;
+    border:none;
 }
